@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version      1.0.0
+// @version      1.0.1
 // @name         Wikipedia Multi-Column Layout
 // @description  Apply multi-column layout to Wikipedia with CSS3.
 // @author       Xoihazard
@@ -92,13 +92,7 @@ div.multicolumn-layout img {
 
   [...nodes].forEach((node) => {
     if (node.nodeType === Node.ELEMENT_NODE) {
-      let close = false;
-
-      if (node.matches(exclude)) {
-        close = true;
-      }
-
-      if (!close) {
+      if (!node.matches(exclude)) {
         row.append(node);
       } else if (!row.isEmpty) {
         row.close();
